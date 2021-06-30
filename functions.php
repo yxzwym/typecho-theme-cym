@@ -15,6 +15,9 @@ function themeConfig($form) {
 
     $runTime = new Typecho_Widget_Helper_Form_Element_Text('runTime', NULL, '2020-05-24 00:00:00', _t('站点建立时间'), _t('请按照时间格式修改：2020-05-24 00:00:00'));
     $form->addInput($runTime);
+
+    $friendLinks = new Typecho_Widget_Helper_Form_Element_Textarea('friendLinks', NULL, '主题下载地址，https://github.com/AmineTsai/TypechoCym', _t('友情链接列表'), _t('好友名，好友网站链接<br/>请按照格式添加，一行一个。分隔符号逗号，中英文都可以'));
+    $form->addInput($friendLinks);
     
     // $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', 
     // array('ShowRecentPosts' => _t('显示最新文章'),
@@ -29,13 +32,14 @@ function themeConfig($form) {
     array(
         'ShowSearch' => _t('显示搜索框'),
         'ShowStats' => _t('显示统计框'),
+        'ShowFriend' => _t('显示友情链接'),
         'ShowArchive' => _t('显示归档'),
         'ShowCategory' => _t('显示分类'),
         'ShowRecentPosts' => _t('显示最新文章'),
         'ShowRecentComments' => _t('显示最近回复'),
         'ShowOther' => _t('显示其它杂项')
     ),
-    array('ShowSearch', 'ShowStats', 'ShowArchive', 'ShowCategory', 'ShowRecentPosts', 'ShowRecentComments'),
+    array('ShowSearch', 'ShowStats', 'ShowFriend', 'ShowArchive', 'ShowCategory', 'ShowRecentPosts', 'ShowRecentComments'),
     _t('侧边栏显示'));
     $form->addInput($sidebarBlock->multiMode());
 
@@ -51,6 +55,21 @@ function themeConfig($form) {
     array('ShowRandomBg', 'ShowAcg', 'SmoothScroll', 'ShowTop', 'ShowLoading', 'ForceHttps'),
     _t('主题配置'));
     $form->addInput($cymBlock->multiMode());
+}
+
+/**
+ * 获取友情链接
+ */
+function getFriendLinks($source) {
+    $source = str_replace("，", ",", $source);
+    $source = str_replace(" ", ",", $source);
+    $source = str_replace("|", ",", $source);
+    $list = explode("\r\n", $source);
+    foreach ($list as $val) {
+        list($name, $url) = explode(",", $val);
+        $link .= '<li><a href="'.$url.'"  target="_blank">'.$name.'</a></li>';
+    }
+    echo $source ? $link : '<li>暂无友情链接</li>';
 }
 
 /**

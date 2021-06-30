@@ -4,7 +4,7 @@
  * 
  * @package cym
  * @author cym
- * @version 0.25
+ * @version 0.26
  * @link https://cym.cm
  */
 

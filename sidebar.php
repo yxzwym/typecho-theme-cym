@@ -28,6 +28,16 @@
     </section>
     <?php endif; ?>
 
+    <?php if (!empty($this->options->sidebarBlock) && in_array('ShowFriend', $this->options->sidebarBlock)): ?>
+    <!-- 友情链接框 -->
+    <section class="widget blur">
+		<h3 class="widget-title"><?php _e('友链'); ?></h3>
+        <ul class="widget-list">
+            <?php getFriendLinks($this->options->friendLinks); ?>
+        </ul>
+	</section>
+    <?php endif; ?>
+
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowCategory', $this->options->sidebarBlock)): ?>
     <!-- 分类框 -->
     <section class="widget blur">
