@@ -61,6 +61,8 @@
 
 <!-- #pjax -->
 <div id="pjax">
+<!-- 修复评论回复会刷新页面的bug -->
+<?php $this->header('commentReply=1&description=0&keywords=0&generator=0&template=0&pingback=0&xmlrpc=0&wlw=0&rss2=0&rss1=0&antiSpam=0&atom'); ?>
 <header id="header" class="clearfix blur">
     <div class="container">
         <!-- 站点logo -->

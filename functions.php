@@ -116,11 +116,11 @@ function getBuildTime($runTime) {
  */
 function getLastPostTime() {
     $db = Typecho_Db::get();
-    $create = $db->fetchRow($db->select('created')->from('table.contents')->limit(1)->order('created', Typecho_Db::SORT_DESC));
-    // $update = $db->fetchRow($db->select('modified')->from('table.contents')->limit(1)->order('modified', Typecho_Db::SORT_DESC));
+    // $create = $db->fetchRow($db->select('created')->from('table.contents')->limit(1)->order('created', Typecho_Db::SORT_DESC));
+    $update = $db->fetchRow($db->select('modified')->from('table.contents')->limit(1)->order('modified', Typecho_Db::SORT_DESC));
     
-    echo Typecho_I18n::dateWord($create['created'], time());
-    // echo Typecho_I18n::dateWord($update['modified'], time());
+    // echo Typecho_I18n::dateWord($create['created'], time());
+    echo Typecho_I18n::dateWord($update['modified'], time());
 }
 
 /**

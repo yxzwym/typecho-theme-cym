@@ -63,6 +63,9 @@
             threshold: 100,
             effect: "fadeIn"
         })
+        // 将评论后地址栏的/comment去掉，修复连续评论失效的bug
+        var now_url_comment = location.href + ' ';
+        history.replaceState(null,'',now_url_comment.replace('/comment ',''));
     })
 
     // 点击a标签
