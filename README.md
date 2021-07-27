@@ -1,7 +1,7 @@
 # Typecho主题 cym
 用原版Typecho主题修改而来，稍微好看了一丁点，使用了pjax
 
-[演示站点](https://cym.cm)
+~~[演示站点](https://cym.cm)~~
 
 安装方式
 1. clone下来
