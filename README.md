@@ -1,4 +1,7 @@
 # Typecho主题 cym
+
+##已停止维护
+
 用原版Typecho主题修改而来，稍微好看了一丁点，使用了pjax
 
 ~~[演示站点](https://cym.cm)~~
